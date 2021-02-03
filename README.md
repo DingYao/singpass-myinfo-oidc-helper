@@ -2,8 +2,8 @@
 
 Use this module to build client applications that can:
 
-- Authenticate users via the Singpass OIDC provider
-- Retrieve user's MyInfo data via the MyInfo Person-Basic API and Person API
+- Authenticate users via the Singpass/Corppass OIDC provider
+- Retrieve user's MyInfo data via the MyInfo Person Basic API and Person API
 
 ---
 
