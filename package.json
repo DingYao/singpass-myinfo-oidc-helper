@@ -14,12 +14,6 @@
 		"build": "./scripts/build.sh",
 		"watch": "export TS_NODE_PROJECT=./tsconfig.script.json && webpack --config webpack.watch.config.ts"
 	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "lint-staged",
-			"pre-push": "npm audit && npm run test && npm run build"
-		}
-	},
 	"lint-staged": {
 		"*.ts": [
 			"npm run lint --",
