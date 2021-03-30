@@ -1,0 +1,62 @@
+{
+	"name": "@govtechsg/singpass-myinfo-oidc-helper",
+	"version": "4.3.1-hotfix",
+	"description": "Helper for building a Relying Party to integrate with Singpass OIDC and MyInfo person basic API",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"repository": "github:GovTechSG/singpass-myinfo-oidc-helper",
+	"bugs": "https://github.com/GovTechSG/singpass-myinfo-oidc-helper/issues",
+	"scripts": {
+		"prepublishOnly": "npm run build",
+		"test": "./shared-scripts/jest-test.sh --maxWorkers=10 --coverage",
+		"test:api": "npm run test -- --config jest.api.config.js",
+		"lint": "./shared-scripts/ts-lint.sh",
+		"build": "./scripts/build.sh",
+		"watch": "export TS_NODE_PROJECT=./tsconfig.script.json && webpack --config webpack.watch.config.ts"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged",
+			"pre-push": "npm audit && npm run test && npm run build"
+		}
+	},
+	"lint-staged": {
+		"*.ts": [
+			"npm run lint --",
+			"git add"
+		]
+	},
+	"license": "MIT",
+	"dependencies": {
+		"@types/rosie": "0.0.37",
+		"axios": "^0.21.1",
+		"https-proxy-agent": "^3.0.1",
+		"is-base64": "^1.0.0",
+		"js-joda": "^1.11.0",
+		"lodash": "^4.17.21",
+		"moment": "^2.24.0",
+		"node-jose": "^2.0.0",
+		"nonce": "^1.0.4",
+		"request": "^2.88.2",
+		"request-promise-native": "^1.0.8",
+		"rosie": "^2.0.1"
+	},
+	"devDependencies": {
+		"@types/jest": "^26.0.19",
+		"@types/lodash": "^4.14.149",
+		"@types/node": "^12.12.14",
+		"@types/request": "^2.48.5",
+		"@types/request-promise-native": "^1.0.17",
+		"dotenv": "^8.2.0",
+		"husky": "^3.1.0",
+		"jest": "^26.6.3",
+		"jest-bamboo-formatter": "^1.0.1",
+		"lint-staged": "^9.5.0",
+		"ts-jest": "^26.4.1",
+		"ts-node": "^9.0.0",
+		"tslint": "^5.20.1",
+		"tslint-config-security": "^1.16.0",
+		"tslint-sonarts": "^1.9.0",
+		"typescript": "^4.0.3"
+	}
+}
